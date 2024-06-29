@@ -1,4 +1,4 @@
-from code.modules.new_repo import NewRepo
+from modules.new_repo import NewRepo
 
 
 if __name__ == "__main__":

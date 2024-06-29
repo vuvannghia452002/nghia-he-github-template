@@ -1,14 +1,6 @@
-# import os
+import os
+from modules.create_file import CreateFile
 
-# def CreateFile(name):
-#     print(f"🚀 Tạo file {name}")
-#     with open(f"{new_repo}/{name}", "w") as file:
-#         file.write("")
-
-
-
-#     CreateFile(f"{os.path.basename(new_repo)}.code-workspace")
-#     CreateFile(".gitignore")
 
 class NewRepo:
     def __init__(self, root_folder):
@@ -16,6 +8,29 @@ class NewRepo:
 
     def start(self):
         print(f"Thư mục gốc: {self.root_folder}")
-        
-        CreateFile("README.md")
 
+        CreateFile(f"{self.root_folder}/README.md")
+        CreateFile(f"{self.root_folder}/.gitignore")
+        contents = """
+
+{
+  "extensions": {
+    "recommendations": []
+  },
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "contents"
+    }
+  ],
+  "settings": {}
+}
+
+  
+
+
+
+"""
+        CreateFile(f"{self.root_folder}/{os.path.basename(self.root_folder)}.code-workspace")
