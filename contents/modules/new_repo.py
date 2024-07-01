@@ -9,18 +9,21 @@ class NewRepo:
 
     def start(self):
         contents = ""
+        Desktop = os.path.expanduser("~/Desktop")
         print(f"Thư mục gốc: {self.root_folder}")
         #
         CreateFile(f"{self.root_folder}/README.md")
         #
         CreateFile(f"{self.root_folder}/.gitignore")
         #
-        with open(f"../nghia-github-template.code-workspace", "r", encoding="utf-8") as file:
+        code_workspace = os.path.join(Desktop, "github/nghia-github-template/nghia-github-template.code-workspace")
+        with open(code_workspace, "r", encoding="utf-8") as file:
             contents = file.read()
         CreateFile(f"{self.root_folder}/{os.path.basename(self.root_folder)}.code-workspace", contents)
         #
         CreateFolder(f"{self.root_folder}/contents")
         #
-        with open(f"../contents/.gitignore", "r", encoding="utf-8") as file:
+        all_gitignore = os.path.join(Desktop, "github/nghia-github-template/all.gitignore")
+        with open(all_gitignore, "r", encoding="utf-8") as file:
             contents = file.read()
         CreateFile(f"{self.root_folder}/contents/.gitignore", contents)
